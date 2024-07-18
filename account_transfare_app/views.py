@@ -36,3 +36,7 @@ def import_accounts(request):
         form = UploadFileForm()
 
     return render(request, 'list_accounts.html', {'form': form})
+
+
+def transfer_funds(request):
+    return render(request, "transfer_funds.html")
