@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -5,13 +7,17 @@ from django.db import models
 
 
 class Accounts(models.Model):
-    id = models.BigIntegerField(primary_key=True)
-    name = models.CharField(max_length=50)
-    balance = models.DecimalField(max_digits=10, decimal_places=10)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=100)
+    balance = models.DecimalField(max_digits=100, decimal_places=10)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class Transactions(models.Model):
     id = models.BigIntegerField(primary_key=True)
     sender_id = models.CharField(max_length=255)
     receiver_id = models.CharField(max_length=255)
-    amount = models.DecimalField(max_digits=10, decimal_places=10)
+    amount = models.DecimalField(max_digits=100, decimal_places=10)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
