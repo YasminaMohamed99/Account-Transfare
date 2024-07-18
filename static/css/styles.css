@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 13.5px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+}
+.btn-form{
+    display: inline;
+}
+.pagination {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input, form select, form button {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+form input, form select {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.submit-btn {
+    width: fit-content;
+    align-self: center;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+.redirect-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none; /* Remove default underline */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.redirect-button:hover {
+    background-color: #0056b3;
+}
+
+
+.slot-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.slot-row input, .slot-row select {
+    flex: 1;
+    margin-right: 10px;
+}
+.slot-row button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.slot-row button:hover {
+    opacity: 0.8;
+}
+
+.add-slot-btn{
+    background-color: rgb(160, 160, 160);
+    width: 50%;
+    align-self: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.add-slot-btn:hover{
+    opacity: 0.8;
+}
+ .button-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.button-container a,
+.button-container form {
+    margin-right: 10px;
+}
+.button-container .redirect-button {
+    display: inline-block;
+}

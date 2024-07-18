@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Accounts</h1>
+    </header>
+    <main>
+        <div style="margin-bottom: 2%; width: 50%; display: flex; justify-content: space-between">
+            <div style="width: 70%">
+                <form method="post" enctype="multipart/form-data" action="{% url 'import_accounts' %}">{% csrf_token %}
+                <input type="file" name="file" required>
+                <button type="submit" class="redirect-button">Import Accounts</button>
+            </form>
+            </div>
+            <div>
+               <a href="{% url 'import_accounts' %}" class="redirect-button">Transfer Funds</a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Balance</th>
+                    <th>History</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                    <tr>
+                        <td>{{ account.id }}</td>
+                        <td>{{ account.name }}</td>
+                         <td>{{ account.balance }}</td>
+                        <td><a href="{% url 'import_accounts' %}" class="redirect-button">Show</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</div>
+{% endblock %}

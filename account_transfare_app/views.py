@@ -1,12 +1,38 @@
+import uuid
+import pandas as pd
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from account_transfare_app.forms import UploadFileForm
 from account_transfare_app.models import Accounts
 
 
 def list_accounts(request):
-    # account1 = Accounts.objects.create(id="cc26b56c-36f6-41f1-b689-d1d5065b95af", name="Joy Dean", balance=4497.22)
-    # account2 = Accounts.objects.create(id="be6acfdc-cae1-4611-b3b2-dfb5167ba5fe", name="Bryan Rice", balance=2632.76)
-    # account1.save()
-    # account2.save()
-    return HttpResponse("Hello, world. You're at the myapp index.")
+    accounts = Accounts.objects.all()
+    return render(request, "list_accounts.html", {"accounts": accounts})
+
+
+def import_accounts(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES['file']
+            file_extension = file.name.split('.')[-1].lower()
+
+            if file_extension == 'csv':
+                df = pd.read_csv(file)
+            elif file_extension == 'tsv':
+                df = pd.read_csv(file, delimiter='\t')
+            elif file_extension in ['xls', 'xlsx']:
+                df = pd.read_excel(file)
+                
+            for _, row in df.iterrows():
+                account_id = uuid.UUID(row['ID'])
+                account, created = Accounts.objects.get_or_create(id=account_id, defaults={'name': row['Name'],
+                                                                                           'balance': row['Balance']})
+                if not created:
+                    account.name = row['Name']
+                    account.balance = row['Balance']
+                    account.save()
+    else:
+        form = UploadFileForm()
+
+    return render(request, 'list_accounts.html', {'form': form})
