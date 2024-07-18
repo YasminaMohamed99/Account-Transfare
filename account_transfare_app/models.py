@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Accounts(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, editable=False)
     name = models.CharField(max_length=100)
     balance = models.DecimalField(max_digits=100, decimal_places=10)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
