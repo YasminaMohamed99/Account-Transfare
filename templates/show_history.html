@@ -12,6 +12,11 @@
         <h1>Show Transactions History</h1>
     </header>
     <main>
+        <div style="color: #686868;">
+            <h2>Account ID: {{id}}</h2>
+            <h2>Account Name: {{name}}</h2>
+            <h2>Current Balance: {{current_balance}}</h2>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -34,6 +39,21 @@
                 {% endfor %}
             </tbody>
         </table>
+        <div class="pagination">
+            <span>
+                {% if transactions.has_previous %}
+                    <a class="pagination-btn" type="button" href="?page={{ transactions.previous_page_number }}">« previous</a>
+                {% endif %}
+
+                <span class="pagination-btn">
+                    Page {{ transactions.number }} of {{ transactions.paginator.num_pages }}
+                </span>
+
+                {% if transactions.has_next %}
+                    <a class="pagination-btn" type="button" href="?page={{ transactions.next_page_number }}">next »</a>
+                {% endif %}
+            </span>
+        </div>
     </main>
 </div>
 {% endblock %}

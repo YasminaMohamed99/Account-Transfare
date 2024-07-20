@@ -41,6 +41,21 @@
                 {% endfor %}
             </tbody>
         </table>
+        <div class="pagination">
+            <span>
+                {% if accounts.has_previous %}
+                    <a class="pagination-btn" type="button" href="?page={{ accounts.previous_page_number }}">« previous</a>
+                {% endif %}
+
+                <span class="pagination-btn">
+                    Page {{ accounts.number }} of {{ accounts.paginator.num_pages }}.
+                </span>
+
+                {% if accounts.has_next %}
+                    <a class="pagination-btn" type="button" href="?page={{ accounts.next_page_number }}">next »</a>
+                {% endif %}
+            </span>
+        </div>
     </main>
 </div>
 {% endblock %}

@@ -18,8 +18,8 @@ class Accounts(models.Model):
 
 
 class Transactions(models.Model):
-    sender_id = models.CharField(max_length=255)
-    receiver_id = models.CharField(max_length=255)
+    sender = models.ForeignKey(Accounts, related_name='sent_transactions', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(Accounts, related_name='received_transactions', on_delete=models.CASCADE)
     sender_balance_before_transaction = models.DecimalField(max_digits=100, decimal_places=3)
     receiver_balance_before_transaction = models.DecimalField(max_digits=100, decimal_places=3)
     amount = models.DecimalField(max_digits=100, decimal_places=3)
