@@ -33,8 +33,10 @@ def import_accounts(request):
                     df = pd.read_csv(file, delimiter='\t')
                 elif file_extension in ['xls', 'xlsx']:
                     df = pd.read_excel(file)
+                elif file.name.endswith('.json'):
+                    df = pd.read_json(file)
                 else:
-                    messages.error(request, "Unsupported file type, File types supported are (csv, tsv, xls, xlsx)")
+                    messages.error(request, "Unsupported file type, File types supported are (csv, tsv, xls, xlsx, json)")
 
                 for _, row in df.iterrows():
                     account_id = uuid.UUID(row['ID'])

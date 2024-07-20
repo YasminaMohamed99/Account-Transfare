@@ -15,7 +15,7 @@
         <div class="header-section">
             <div class="file-upload-section">
                  <form method="post" enctype="multipart/form-data" action="{% url 'import_accounts' %}">{% csrf_token %}
-                    <input type="file" name="file" class="file-input" accept=".csv, .tsv, .xls, .xlsx" required>
+                    <input type="file" name="file" class="file-input" accept=".csv, .tsv, .xls, .xlsx, .json" required>
                      <button type="submit" class="redirect-button" style="background-color: #28a745">Import Accounts</button>
                  </form>
             </div>

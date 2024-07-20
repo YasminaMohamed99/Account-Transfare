@@ -7,7 +7,7 @@ This Django project implements a basic account management system with functional
 ## Features
 
 - **List Accounts**: List all accounts and appear information for each account.
-- **File Import**: Import accounts from CSV, TSV, XLS, and XLSX files.
+- **File Import**: Import accounts from CSV, TSV, XLS, XLSX, and json files.
 - **Fund Transfer**: Transfer funds between accounts with transaction recording.
 - **Transaction History**: View transaction history for each transaction for specific account.
 - **Pagination**: Paginate the list of accounts and transaction history for better usability.
@@ -36,44 +36,30 @@ This Django project implements a basic account management system with functional
    git clone https://github.com/YasminaMohamed99/Account-Transfare.git
    cd Account-Transfer
    ```
-2. **Create and Activate Virtual Environment**
+2. **Build and Run with Docker**
 
    ```bash
-   python -m venv env 
-   source env/bin/activate  # On Windows use `env\Scripts\activate`
+   docker-compose up --build
    ```
-3. **Install Dependencies**
+3. **Run Migrations**
 
    ```bash
-   pip install -r requirements.txt
+   docker-compose run web python manage.py migrate
    ```
-4. **Run Migrations**
+4. **Create Superuser**
 
    ```bash
-   python manage.py migrate
+   docker-compose run web python manage.py createsuperuser
    ```
-5. **Create Superuser**
+5. **Run the Development Server**
 
    ```bash
-   python manage.py createsuperuser
+   docker-compose up
    ```
    
-6. **Run the Development Server**
-
-   ```bash
-   python manage.py runserver
-   ```
-7. **Docker Deployment**
-
-   ```bash
-   docker build -t account-transfer .
-   docker run -p 8000:8000 account-transfer
-   ```
-8. **Testing**
+6. **Testing**
    * Run tests to ensure everything is working correctly:
-   ```bash
-   python manage.py test
-   ```
 
-
-   
+      ```bash
+      docker-compose run web python manage.py test
+      ```

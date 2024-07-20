@@ -16,6 +16,7 @@ class UploadFileFormTest(TestCase):
         self.several_file_type("tsv", "text/tab-separated-values")
         self.several_file_type("xls", "application/vnd.ms-excel")
         self.several_file_type("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        self.several_file_type("json", "application/json")
 
     def test_form_with_invalid_file_type(self):
         file = SimpleUploadedFile("test_file.jpg", b"file_content", content_type="image/jpeg")
