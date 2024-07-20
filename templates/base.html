@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Transfers</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.close-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            this.parentElement.style.display = 'none';
+        });
+    });
+});
+    </script>
+
     {% block head %}
     {% endblock %}
 </head>
@@ -16,6 +27,16 @@
             <a class="navbar-item" href=""></a>
         </div>
     </nav>
+        {% if messages %}
+        <div role="alert">
+            {% for message in messages %}
+                 <div class="message {{ message.tags }}" aria-live="assertive">
+                    <span class="message-text">{{ message }}</span>
+                    <button class="close-btn" aria-label="Close">&times;</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     {% block content %}
     {% endblock %}

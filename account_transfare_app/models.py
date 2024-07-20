@@ -9,7 +9,7 @@ from django.db import models
 class Accounts(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
     name = models.CharField(max_length=100)
-    balance = models.DecimalField(max_digits=100, decimal_places=10)
+    balance = models.DecimalField(max_digits=100, decimal_places=3)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -18,12 +18,10 @@ class Accounts(models.Model):
 
 
 class Transactions(models.Model):
-    id = models.BigIntegerField(primary_key=True)
     sender_id = models.CharField(max_length=255)
     receiver_id = models.CharField(max_length=255)
-    amount = models.DecimalField(max_digits=100, decimal_places=10)
+    sender_balance_before_transaction = models.DecimalField(max_digits=100, decimal_places=3)
+    receiver_balance_before_transaction = models.DecimalField(max_digits=100, decimal_places=3)
+    amount = models.DecimalField(max_digits=100, decimal_places=3)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.id

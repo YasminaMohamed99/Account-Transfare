@@ -12,14 +12,15 @@
         <h1>Transfer Funds</h1>
     </header>
     <main>
-        <form id="add-challenge-form">
+        <form id="add-challenge-form" method="POST" action="{% url 'transfer' %}">
+            {% csrf_token %}
             <label for="sender-id">Sender ID:</label>
             <input type="text" id="sender-id" name="sender-id" required>
             <label for="receiver-id">Receiver ID:</label>
             <input type="text" id="receiver-id" name="receiver-id" required>
             <label for="amount">Amount:</label>
             <input type="number" id="amount" name="amount" required>
-            <button type="submit" class="submit-btn">Transfer</button>
+            <button type="submit" class="btn btn-submit">Transfer</button>
         </form>
     </main>
 </div>

@@ -38,33 +38,6 @@ th {
     background-color: #f4f4f4;
 }
 
-.edit-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 7px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    margin-right: 5px;
-    font-size: 12px;
-}
-
-.delete-btn {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 13.5px;
-}
-
-.edit-btn:hover, .delete-btn:hover {
-    opacity: 0.8;
-}
-.btn-form{
-    display: inline;
-}
 .pagination {
     text-align: center;
     margin-bottom: 20px;
@@ -106,27 +79,12 @@ form input, form select {
     width: 100%;
 }
 
-.submit-btn {
-    width: fit-content;
-    align-self: center;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 10px 20px;
-}
-
-.submit-btn:hover {
-    opacity: 0.8;
-}
-
 .redirect-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    text-decoration: none; /* Remove default underline */
+    text-decoration: none;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -181,4 +139,113 @@ form input, form select {
 }
 .button-container .redirect-button {
     display: inline-block;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    width: fit-content;
+    align-self: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 3%;
+    padding: 1.5% 3%;
+}
+
+.btn-redirect {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding: 1% 1.5%;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.btn-redirect:hover {
+    background-color: #0056b3;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.file-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width:30%;
+}
+
+.file-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 50%;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.message.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
 }
